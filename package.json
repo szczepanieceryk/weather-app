@@ -1,5 +1,6 @@
 {
-  "name": "frontend-bootstrap",
+  "homepage": "https://github.com/szczepanieceryk/weather-app",
+  "name": "weather-app",
   "version": "1.0.0",
   "description": "Opinionated frontend bootstrap",
   "main": "index.js",
@@ -9,7 +10,8 @@
     "dev": "vite",
     "lint": "eslint src",
     "test": "vitest src",
-    "test:e2e": "npx playwright install && playwright test"
+    "test:e2e": "npx playwright install && playwright test",
+    "test:ci": "vitest run"
   },
   "author": "Przeprogramowani",
   "license": "ISC",
@@ -35,6 +37,7 @@
     "vitest": "1.4.0"
   },
   "dependencies": {
+    "gh-pages": "6.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-router-dom": "6.22.3"
