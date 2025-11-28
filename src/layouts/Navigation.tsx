@@ -4,7 +4,7 @@ import unitsIcon from '../assets/images/icon-units.svg';
 const Navigation: React.FC = () => {
   return (
     <nav>
-      <div className="p-4 flex flex-wrap justify-between items-center">
+      <div className="p-4 md:py-8 max-w-[90%] mx-auto flex flex-wrap justify-between items-center">
         <img src={logo} alt="" />
         <div className="p-2 rounded-md bg-[#3d3b5eff] cursor-pointer">
           <img src={unitsIcon} alt="" className="inline" />
