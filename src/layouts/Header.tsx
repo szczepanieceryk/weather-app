@@ -2,9 +2,11 @@ import React from 'react';
 import searchIcon from '../assets/images/icon-search.svg';
 const Header: React.FC = () => {
   return (
-    <div className="mt-[3rem] flex flex-wrap justify-center text-center">
-      <h1 className="mb-[3rem] block text-white text-5xl">How&apos;s the sky looking today?</h1>
-      <form action="" className="w-full max-w-xs">
+    <div className="mt-[3rem] max-w-[95%] mx-auto flex flex-wrap justify-center text-center">
+      <h1 className="mb-[2rem] basis-full text-white text-5xl">
+        How&apos;s the sky looking today?
+      </h1>
+      <form action="" className="w-full mx-auto md:max-w-lg">
         <div className="relative">
           <img src={searchIcon} alt="" className="absolute top-3 left-3" />
           <label htmlFor="">
