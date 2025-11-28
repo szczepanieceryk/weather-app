@@ -1,5 +1,6 @@
 import React from 'react';
 import mobileBgImg from '../assets/images/bg-today-small.svg';
+import sunIcon from '../assets/images/icon-sunny.webp';
 const TodayForecast: React.FC = () => {
   return (
     <div
@@ -14,10 +15,10 @@ const TodayForecast: React.FC = () => {
         <span className="block mb-2 text-white text-2xl">
           <strong>Berlin, Germany</strong>
         </span>
-        <span className="block text-[]">Tuesday, Aug 5,2025</span>
+        <span className="block text-white">Tuesday, Aug 5,2025</span>
       </div>
       <div className="mt-6 basis-full flex flex-wrap items-center justify-around">
-        <div className="w-8 h-8 rounded-xl bg-white"></div>
+        <img src={sunIcon} alt="" className="w-[120px] h-[120px] " />
         <span className="text-7xl text-white">68C</span>
       </div>
     </div>
