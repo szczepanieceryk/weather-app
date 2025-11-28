@@ -4,7 +4,7 @@ import Header from './layouts/Header';
 import TodayForecast from './components/TodayForecast';
 import ForecastCube from './components/ForecastCube';
 import DailyForecast from './layouts/DailyForecast';
-
+import HourlyForecast from './layouts/HourlyForecast';
 const App = () => {
   return (
     <div className="bg-[#03012dff]">
@@ -13,6 +13,7 @@ const App = () => {
       <TodayForecast />
       <ForecastCube />
       <DailyForecast />
+      <HourlyForecast />
     </div>
   );
 };
