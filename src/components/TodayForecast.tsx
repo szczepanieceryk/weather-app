@@ -1,14 +1,25 @@
 import React from 'react';
 import mobileBgImg from '../assets/images/bg-today-small.svg';
+import desktopBgImg from '../assets/images/bg-today-large.svg';
+
 import sunIcon from '../assets/images/icon-sunny.webp';
 import ForecastCube from './ForecastCube';
 const TodayForecast: React.FC = () => {
+  const returnAppropriateBgImg = (): string => {
+    let bgImg = mobileBgImg;
+    if (window.innerWidth >= 992) {
+      bgImg = desktopBgImg;
+    }
+
+    return bgImg;
+  };
+
   return (
     <div>
       <div
         className="max-w-[95%] md:max-w-2xl mx-auto mt-[3rem] py-[3rem] px-2 flex flex-wrap justify-center text-center rounded-xl bg-[#4455daff]"
         style={{
-          backgroundImage: `url(${mobileBgImg})`,
+          backgroundImage: `url(${returnAppropriateBgImg()})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
