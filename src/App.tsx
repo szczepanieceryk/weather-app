@@ -6,7 +6,7 @@ import DailyForecast from './layouts/DailyForecast';
 import HourlyForecast from './layouts/HourlyForecast';
 const App = () => {
   return (
-    <div className="bg-[#03012dff]">
+    <div className="pb-[4rem] bg-[#03012dff]">
       <Navigation />
       <Header />
       <TodayForecast />

@@ -51,7 +51,7 @@ const forecastData: HourForecastProps[] = [
 ];
 const HourlyForecast: React.FC = () => {
   return (
-    <div className="max-w-[95%] p-3 mx-auto rounded-xl bg-[#272541ff]">
+    <div className="max-w-[95%] sm:max-w-md p-3 mx-auto rounded-xl bg-[#272541ff]">
       <div className="flex flex-wrap justify-between">
         <span className="block mt-2 mb-4 text-white">
           <strong>Hourly forecast</strong>
