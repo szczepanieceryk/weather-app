@@ -20,7 +20,7 @@ const weatherData: DailyForecastCellProps[] = [
 
 const DailyForecast: React.FC = () => {
   return (
-    <div className="max-w-[95%] lg:max-w-[60%] mx-auto py-[2rem] lg:mt-3">
+    <div className="max-w-[95%] lg:max-w-full mx-auto py-[2rem] lg:mt-3">
       <span className="mb-4 block text-white">
         <strong>Daily forecast</strong>
       </span>

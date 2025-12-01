@@ -17,7 +17,7 @@ const TodayForecast: React.FC = () => {
   return (
     <div>
       <div
-        className="max-w-[95%] lg:max-w-[60%] mx-auto mt-[3rem] py-[3rem] lg:py-[4rem] px-2 flex flex-wrap justify-center lg:flex-start text-center lg:text-left lg:items-center rounded-xl bg-[#4455daff]"
+        className="max-w-[95%] lg:max-w-full mx-auto mt-[3rem] lg:mt-0 py-[3rem] lg:py-[4rem] px-2 flex flex-wrap justify-center lg:flex-start text-center lg:text-left lg:items-center rounded-xl bg-[#4455daff]"
         style={{
           backgroundImage: `url(${returnAppropriateBgImg()})`,
           backgroundSize: 'cover',
