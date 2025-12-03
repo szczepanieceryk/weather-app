@@ -9,7 +9,7 @@ const App = () => {
     <div className="pb-[4rem] bg-[#03012dff]">
       <Navigation />
       <Header />
-      <div className="lg:grid lg:grid-cols-3 lg:mt-[4rem] lg:max-w-6xl lg:mx-auto justify-items-center">
+      <div className="lg:grid lg:grid-cols-3 lg:mt-[3rem] lg:max-w-6xl lg:mx-auto justify-items-center">
         <div className="lg:col-span-2">
           <TodayForecast />
           <DailyForecast />

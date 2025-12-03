@@ -3,7 +3,7 @@ import searchIcon from '../assets/images/icon-search.svg';
 const Header: React.FC = () => {
   return (
     <div className="mt-[3rem] max-w-[95%] mx-auto flex flex-wrap justify-center text-center">
-      <h1 className="mb-[2rem] basis-full text-white text-5xl">
+      <h1 className="mb-[2rem] lg:mb-[4rem] basis-full text-white text-5xl">
         How&apos;s the sky looking today?
       </h1>
       <form action="" className="w-full mx-auto md:max-w-lg">
