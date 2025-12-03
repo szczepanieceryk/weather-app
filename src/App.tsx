@@ -16,6 +16,7 @@ const App = () => {
             location="Berlin, Germany"
             date="Tuesday, Aug 5,2025"
             weather={{ icon: sunIcon, temperature: '68C' }}
+            additionalInfo={{ feels: '64C', humidity: '46%', wind: '9mph', precipitation: '0 in' }}
           />
           <DailyForecast />
         </div>

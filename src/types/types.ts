@@ -15,4 +15,5 @@ export interface TodayForecastProps {
   location: string;
   date: string;
   weather: { icon: string; temperature: string };
+  additionalInfo: { feels: string; humidity: string; wind: string; precipitation: string };
 }

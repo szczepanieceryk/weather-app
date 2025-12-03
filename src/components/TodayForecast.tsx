@@ -5,7 +5,12 @@ import desktopBgImg from '../assets/images/bg-today-large.svg';
 import ForecastCube from './ForecastCube';
 import { TodayForecastProps } from '../types/types';
 
-const TodayForecast: React.FC<TodayForecastProps> = ({ location, date, weather }) => {
+const TodayForecast: React.FC<TodayForecastProps> = ({
+  location,
+  date,
+  weather,
+  additionalInfo,
+}) => {
   const returnAppropriateBgImg = (): string => {
     let bgImg = mobileBgImg;
     if (window.innerWidth >= 992) {
@@ -36,7 +41,7 @@ const TodayForecast: React.FC<TodayForecastProps> = ({ location, date, weather }
           <span className="text-7xl text-white">{weather.temperature}</span>
         </div>
       </div>
-      <ForecastCube />
+      <ForecastCube data={additionalInfo} />
     </div>
   );
 };
