@@ -10,3 +10,9 @@ export interface HourForecastProps {
   hour: string;
   temperature: string;
 }
+
+export interface TodayForecastProps {
+  location: string;
+  date: string;
+  weather: { icon: string; temperature: string };
+}

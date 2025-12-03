@@ -2,9 +2,10 @@ import React from 'react';
 import mobileBgImg from '../assets/images/bg-today-small.svg';
 import desktopBgImg from '../assets/images/bg-today-large.svg';
 
-import sunIcon from '../assets/images/icon-sunny.webp';
 import ForecastCube from './ForecastCube';
-const TodayForecast: React.FC = () => {
+import { TodayForecastProps } from '../types/types';
+
+const TodayForecast: React.FC<TodayForecastProps> = ({ location, date, weather }) => {
   const returnAppropriateBgImg = (): string => {
     let bgImg = mobileBgImg;
     if (window.innerWidth >= 992) {
@@ -26,13 +27,13 @@ const TodayForecast: React.FC = () => {
       >
         <div className="basis-full lg:max-w-[300px] mb-4 lg:mb-0">
           <span className="block mb-2 text-white text-2xl">
-            <strong>Berlin, Germany</strong>
+            <strong>{location}</strong>
           </span>
-          <span className="block text-white">Tuesday, Aug 5,2025</span>
+          <span className="block text-white">{date}</span>
         </div>
         <div className="mt-6 lg:mt-0 basis-full lg:max-w-[300px] flex flex-wrap items-center justify-around">
-          <img src={sunIcon} alt="" className="w-[120px] h-[120px] " />
-          <span className="text-7xl text-white">68C</span>
+          <img src={weather.icon} alt="" className="w-[120px] h-[120px] " />
+          <span className="text-7xl text-white">{weather.temperature}</span>
         </div>
       </div>
       <ForecastCube />
