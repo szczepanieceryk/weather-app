@@ -1,6 +1,9 @@
 import { useState } from 'react';
+import { WeatherData } from '../types/types';
 const useWeatherForecast = () => {
   const [location, setLocation] = useState<string>('');
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const result = e.target.value;
@@ -8,6 +11,7 @@ const useWeatherForecast = () => {
   };
   const handleWeatherSearch = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
     console.log('Search for weather');
 
     const API_URL =
@@ -19,14 +23,17 @@ const useWeatherForecast = () => {
           Accept: 'application/json',
         },
       });
-      const weatherData = await res.json();
+      const weatherData: WeatherData = await res.json();
 
+      setWeatherData(weatherData);
       console.log(weatherData);
     } catch (error) {
       console.error(`Error while API call: ${error} `);
+    } finally {
+      setLoading(false);
     }
   };
-  return { location, handleWeatherSearch, handleLocationChange };
+  return { loading, location, weatherData, handleWeatherSearch, handleLocationChange };
 };
 
 export default useWeatherForecast;
