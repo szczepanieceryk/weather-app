@@ -6,9 +6,12 @@ const Header: React.FC = () => {
   const { location, handleWeatherSearch, handleLocationChange } = useWeatherForecast();
   return (
     <div className="mt-[3rem] max-w-[95%] mx-auto flex flex-wrap justify-center text-center">
-      <h1 className="mb-[2rem] lg:mb-[4rem] basis-full text-white text-5xl">
-        How&apos;s the sky looking today?
-      </h1>
+      <div className="mx-auto max-w-[250px] md:min-w-[1000px]">
+        <h1 className="mb-[2rem] lg:mb-[4rem] basis-full text-white text-5xl">
+          <strong>How&apos;s the sky looking today?</strong>
+        </h1>
+      </div>
+
       <form onSubmit={handleWeatherSearch} className="w-full mx-auto md:max-w-lg">
         <div className="flex flex-wrap lg:flex-nowrap items-center lg:gap-2">
           <div className="relative w-full lg:w-3/4">
