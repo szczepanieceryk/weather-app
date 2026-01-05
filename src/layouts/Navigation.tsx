@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import logo from '../assets/images/logo.svg';
 import unitsIcon from '../assets/images/icon-units.svg';
 import dropdownIcon from '../assets/images/icon-dropdown.svg';
-
+import checkIcon from '../assets/images/icon-checkmark.svg';
 const Navigation: React.FC = () => {
+  const [unit, setUnit] = useState<string>('metric');
   const [open, setOpen] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
@@ -47,53 +48,84 @@ const Navigation: React.FC = () => {
               <button
                 className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
                 role="menuitem"
+                onClick={() => setUnit(unit === 'metric' ? 'imperial' : 'metric')}
               >
-                Switch to Imperial
+                Switch to {unit === 'metric' ? 'Imperial' : 'Metric'}
               </button>
 
               <div className="px-3 py-1 text-xs text-gray-500">Temperature</div>
               <button
-                className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
+                className={`flex justify-between w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff] ${unit === 'metric' ? 'bg-[#312f4bff]' : ''}`}
                 role="menuitem"
               >
                 Celsius (°C)
+                <img
+                  src={checkIcon}
+                  alt=""
+                  className={`inline-block ml-2 ${unit === 'metric' ? 'visible' : 'invisible'}`}
+                />
               </button>
               <button
-                className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
+                className={`flex justify-between w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff] ${unit === 'imperial' ? 'bg-[#312f4bff]' : ''}`}
                 role="menuitem"
               >
                 Fahrenheit (°F)
+                <img
+                  src={checkIcon}
+                  alt=""
+                  className={`inline-block ml-2 ${unit === 'imperial' ? 'visible' : 'invisible'}`}
+                />
               </button>
 
               <div className="border-t border-[#3d3b5eff]">
                 <div className="px-3 py-1 text-xs text-gray-500">Wind Speed</div>
                 <button
-                  className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
+                  className={`flex justify-between w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff] ${unit === 'metric' ? 'bg-[#312f4bff]' : ''}`}
                   role="menuitem"
                 >
                   km/h
+                  <img
+                    src={checkIcon}
+                    alt=""
+                    className={`inline-block ml-2 ${unit === 'metric' ? 'visible' : 'invisible'}`}
+                  />
                 </button>
                 <button
-                  className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
+                  className={`flex justify-between w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff] ${unit === 'imperial' ? 'bg-[#312f4bff]' : ''}`}
                   role="menuitem"
                 >
                   mph
+                  <img
+                    src={checkIcon}
+                    alt=""
+                    className={`inline-block ml-2 ${unit === 'imperial' ? 'visible' : 'invisible'}`}
+                  />
                 </button>
               </div>
 
               <div className="border-t border-[#3d3b5eff]">
                 <div className="px-3 py-1 text-xs text-gray-500">Precipitation</div>
                 <button
-                  className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
+                  className={`flex justify-between w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff] ${unit === 'metric' ? 'bg-[#312f4bff]' : ''}`}
                   role="menuitem"
                 >
                   Millimeters (mm)
+                  <img
+                    src={checkIcon}
+                    alt=""
+                    className={`inline-block ml-2 ${unit === 'metric' ? 'visible' : 'invisible'}`}
+                  />
                 </button>
                 <button
-                  className="w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff]"
+                  className={`flex justify-between w-[98%] mx-auto rounded-md text-left px-3 py-2 hover:bg-[#312f4bff] ${unit === 'imperial' ? 'bg-[#312f4bff]' : ''}`}
                   role="menuitem"
                 >
                   Inches (in)
+                  <img
+                    src={checkIcon}
+                    alt=""
+                    className={`inline-block ml-2 ${unit === 'imperial' ? 'visible' : 'invisible'}`}
+                  />
                 </button>
               </div>
             </div>
