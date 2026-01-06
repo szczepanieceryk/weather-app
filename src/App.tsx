@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navigation from './layouts/Navigation';
 import Header from './layouts/Header';
 import TodayForecast from './components/TodayForecast';
@@ -7,6 +7,8 @@ import HourlyForecast from './layouts/HourlyForecast';
 import sunIcon from './assets/images/icon-sunny.webp';
 import useWeatherForecast from './hooks/useWeatherForecast';
 const App = () => {
+  const [unit, setUnit] = useState<string>('metric');
+
   const { location, weatherData, handleWeatherSearch, handleLocationChange } = useWeatherForecast();
 
   // transform API data into TodayForecast props shape
@@ -45,7 +47,7 @@ const App = () => {
 
   return (
     <div className="pb-[4rem] bg-[#03012dff]">
-      <Navigation />
+      <Navigation unit={unit} setUnit={setUnit} />
       <Header
         location={location}
         handleWeatherSearch={handleWeatherSearch}

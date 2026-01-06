@@ -3,8 +3,13 @@ import logo from '../assets/images/logo.svg';
 import unitsIcon from '../assets/images/icon-units.svg';
 import dropdownIcon from '../assets/images/icon-dropdown.svg';
 import checkIcon from '../assets/images/icon-checkmark.svg';
-const Navigation: React.FC = () => {
-  const [unit, setUnit] = useState<string>('metric');
+
+interface NavigationProps {
+  unit: string;
+  setUnit: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const Navigation: React.FC<NavigationProps> = ({ unit, setUnit }) => {
   const [open, setOpen] = useState<boolean>(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
