@@ -24,7 +24,7 @@ const Header: React.FC<HeaderProps> = ({ location, handleWeatherSearch, handleLo
               <input
                 type="search"
                 placeholder="Search for a place..."
-                className="p-2 pl-[3rem] rounded-md bg-[#3d3b5eff] w-full"
+                className="p-2 pl-[3rem] rounded-md text-gray-300 bg-[#3d3b5eff] w-full"
                 value={location}
                 onChange={handleLocationChange}
               />
