@@ -1,9 +1,13 @@
 import React from 'react';
 import searchIcon from '../assets/images/icon-search.svg';
 
-import useWeatherForecast from '../hooks/useWeatherForecast';
-const Header: React.FC = () => {
-  const { location, handleWeatherSearch, handleLocationChange } = useWeatherForecast();
+interface HeaderProps {
+  location: string;
+  handleWeatherSearch: (e: React.FormEvent) => void;
+  handleLocationChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Header: React.FC<HeaderProps> = ({ location, handleWeatherSearch, handleLocationChange }) => {
   return (
     <div className="mt-[3rem] max-w-[95%] mx-auto flex flex-wrap justify-center text-center">
       <div className="mx-auto max-w-[250px] md:min-w-[1000px]">
