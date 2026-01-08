@@ -94,6 +94,19 @@ const App = () => {
         </div>
         <HourlyForecast />
       </div>
+      <div className="p-4 text-center text-white text-sm mt-[5rem]">
+        Challenge by{' '}
+        <a href="https://www.frontendmentor.io?ref=challenge" className="text-blue-500">
+          Frontend Mentor
+        </a>
+        .
+        <br />
+        Coded by{' '}
+        <a href="https://github.com/szczepanieceryk" className="text-orange-500">
+          Eryk Szczepaniec
+        </a>
+        .
+      </div>
     </div>
   );
 };
