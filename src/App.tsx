@@ -6,37 +6,61 @@ import DailyForecast from './layouts/DailyForecast';
 import HourlyForecast from './layouts/HourlyForecast';
 import sunIcon from './assets/images/icon-sunny.webp';
 import useWeatherForecast from './hooks/useWeatherForecast';
+import { WeatherData } from './types/types';
 const App = () => {
   const [unit, setUnit] = useState<string>('metric');
 
-  const { location, weatherData, handleWeatherSearch, handleLocationChange } = useWeatherForecast();
+  // hook nie przyjmuje teraz parametru unit — użyj bez argumentu
+  const { location, weatherData, handleWeatherSearch, handleLocationChange } =
+    useWeatherForecast(unit);
 
   // transform API data into TodayForecast props shape
   const todayProps = weatherData
-    ? {
-        location: location || `${weatherData.latitude}, ${weatherData.longitude}`,
-        date: weatherData.current?.time
-          ? new Date(weatherData.current.time).toLocaleDateString('en-US', {
-              weekday: 'long',
-              month: 'short',
-              day: 'numeric',
-              year: 'numeric',
-            })
-          : new Date().toLocaleDateString(),
-        weather: {
-          // map weather icon based on API data (fallback to sunIcon)
-          icon: sunIcon,
-          temperature: `${Math.round(weatherData.current.temperature_2m)}°`,
-        },
-        additionalInfo: {
-          feels: `${Math.round(weatherData.current.temperature_2m)}°`,
-          humidity: weatherData.hourly?.relative_humidity_2m?.[0]
-            ? `${weatherData.hourly.relative_humidity_2m[0]}%`
-            : '—',
-          wind: `${weatherData.current.wind_speed_10m} ${weatherData.current_units?.wind_speed_10m || ''}`,
-          precipitation: '0', // extend WeatherData/type to include precipitation from API if needed
-        },
-      }
+    ? (() => {
+        const current: WeatherData['current_weather'] | undefined = weatherData?.current_weather;
+        const hourly: WeatherData['hourly'] | undefined = weatherData?.hourly;
+        const timeIndex =
+          hourly?.time && current?.time
+            ? hourly.time.findIndex((t: string) => t === current.time)
+            : -1;
+
+        const temperature =
+          current?.temperature ??
+          (timeIndex >= 0 ? hourly?.temperature_2m?.[timeIndex] : undefined);
+
+        const windspeed =
+          current?.windspeed ?? (timeIndex >= 0 ? hourly?.windspeed_10m?.[timeIndex] : undefined);
+
+        const humidity =
+          timeIndex >= 0 && hourly?.relativehumidity_2m?.[timeIndex] != null
+            ? `${hourly.relativehumidity_2m[timeIndex]}%`
+            : '—';
+
+        return {
+          location: location || `${weatherData.latitude}, ${weatherData.longitude}`,
+          date: current?.time
+            ? new Date(current.time).toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'short',
+                day: 'numeric',
+                year: 'numeric',
+              })
+            : new Date().toLocaleDateString(),
+          weather: {
+            icon: sunIcon,
+            temperature: temperature != null ? `${Math.round(temperature)}°` : '—',
+          },
+          additionalInfo: {
+            feels: temperature != null ? `${Math.round(temperature)}°` : '—',
+            humidity,
+            wind:
+              windspeed != null
+                ? `${Math.round(windspeed)} ${unit === 'imperial' ? 'mph' : 'km/h'}`
+                : '—',
+            precipitation: '0',
+          },
+        };
+      })()
     : {
         // fallback values shown before any API response
         location: 'Berlin, Germany',
